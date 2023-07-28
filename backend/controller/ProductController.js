@@ -61,8 +61,8 @@ export const updateProduct = async (req,res) => {
     })
     if(!product){ return res.status(404).json({msg:"Barang Tidak ditemukkan"}) }
     let fileName = "";
-    if(req.files.image === null){
-        fileName = Product.image;
+    if(req.files === null){
+        fileName = product.image;
     }else{
         const image = req.files.image;
         const fileSize = image.data.length;
