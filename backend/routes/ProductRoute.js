@@ -16,4 +16,4 @@ router.patch("/product/:id",updateProduct)
 router.delete("/product/:id",deleteProduct)
 
 // console.log(router)
-export default router;
+export default router; 
