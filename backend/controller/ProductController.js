@@ -2,10 +2,18 @@ import Product from "../models/ProductModel.js";
 import {v4} from "uuid";
 import path from "path";
 import fs from "fs";
+import { Op } from "sequelize";
 
 export const getProducts = async (req,res) => {
+    const search = req.query.search || "";
     try{
-        const response = await Product.findAll();
+        const response = await Product.findAll({
+            where:{
+                [Op.or] : [{name:{
+                    [Op.like]:"%" + search + "%"
+                }}]
+            }
+        });
         res.json(response)
     }catch (error){
         console.log(error.message)
