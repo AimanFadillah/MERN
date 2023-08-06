@@ -1,8 +1,20 @@
 import Product from "../models/ProductModel.js";
+import KategoriProduct from "../models/KategoriProduct.js";
 import {v4} from "uuid";
 import path from "path";
 import fs from "fs";
 import { Op } from "sequelize";
+import Kategori from "../models/KategoriModel.js";
+
+export async function saveKategoriProduct (req,res) {
+    // const product = await Product.findOne({where:{id:16}});
+    // const kategori = await Kategori.findOne({where:{id:2}});
+    // const data = await product.addKategori(kategori); // Tambah data
+    // const data = await Kategori.findOne({where:{id:2},include:Product}); // Ambil data
+    // const data = await product.removeKategori(kategori); // Hapus Kategori
+    // res.json(data);
+    res.json("hai")
+}
 
 export const getProducts = async (req,res) => {
     const search = req.query.search || "";
